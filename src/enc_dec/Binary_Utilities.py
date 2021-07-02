@@ -1,7 +1,5 @@
 from struct import pack, unpack
 
-UPDKEY = b'\xFE\x80\x1C\xB2\xD1\xEF\x41\xA6\xA4\x17\x31\xF5\xA0\x68\x24\xF0'
-
 class Binary_Utilities(object):
 	def __init__(self):
 		pass	
@@ -52,11 +50,11 @@ class Binary_Utilities(object):
 		if (sz % 8) == 0:	data += b'\x00\x00\x00\x00'
 
 		# so we can add our 4 checksum bytes and be 8-byte aligned
-		return data + pack('<L', checksum(data))
+		return data + pack('<L', self.checksum(data))
 
 	def unpad(self, data):
 		chk = unpack('<L', data[-4:])[0]
 		s = self.checksum(data[:-4])
 		assert s == chk, 'checksum does not match!'
 		return data[:-4]
-	
+
