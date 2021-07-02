@@ -20,7 +20,7 @@ class EncDec(object):
 		self.iv = b'\x00' * 8
 		self.offset = 0
 
-	def _UpdateKey(self):
+	def update_key(self):
 		k = bytearray()
 		for i in range(16):	k.append((self.key[i] + i) & 0xFF)
 		self.key = k
@@ -30,11 +30,11 @@ class EncDec(object):
 		assert len(data) % 8 == 0, 'data must be 8 byte aligned!'
 		res = bytearray()
 		for i in range(0, len(data), 8):
-			ct = self.Binary_Utilities_OBJ.encrypt_ecb(self.Binary_Utilities_OBJ.xor(self.iv, data[i:i+8]), self.key)
+			ct = self.Binary_Utilities_OBJ.ecb_enc(self.Binary_Utilities_OBJ.xor(self.iv, data[i:i+8]), self.key)
 			res += ct
 			self.iv = ct
 			self.offset += 8
-			if (self.offset % 1024) == 0:	self._UpdateKey()
+			if (self.offset % 1024) == 0:	self.update_key()
 		return res
 
 	def decrypt(self, data):
@@ -42,10 +42,10 @@ class EncDec(object):
 		res = bytearray()
 		for i in range(0, len(data), 8):
 			ct = data[i:i+8]
-			res += self.Binary_Utilities_OBJ.xor(self.iv, self.Binary_Utilities_OBJ.decrypt_ecb(ct, self.key))
+			res += self.Binary_Utilities_OBJ.xor(self.iv, self.Binary_Utilities_OBJ.ecb_dec(ct, self.key))
 			self.iv = ct
 			self.offset += 8
-			if (self.offset % 1024) == 0:	self._UpdateKey()
+			if (self.offset % 1024) == 0:	self.update_key()
 		return self.Binary_Utilities_OBJ.unpad(res)
 
 
