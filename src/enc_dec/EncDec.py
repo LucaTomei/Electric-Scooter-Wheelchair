@@ -5,8 +5,11 @@
 # We can use the same module to encrypt the previously modified and decrypted file
 
 from struct import pack, unpack
-from Binary_Utilities import Binary_Utilities
 
+try:
+	from .Binary_Utilities import Binary_Utilities
+except Exception as e:
+	from Binary_Utilities import Binary_Utilities
 
 class EncDec(object):
 	def __init__(self):
