@@ -26,7 +26,7 @@ class Encryption_Test(object):
 
 			hfo.close()
 			hfi.close()
-		elif choice == 2:
+		else:
 			print("Insert binary to Decrypt")
 			input_filename = input()
 			if not exists(input_filename):
