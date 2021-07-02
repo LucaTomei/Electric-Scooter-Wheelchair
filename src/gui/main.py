@@ -10,6 +10,14 @@ HEIGHT = 550
 WIDTH = 660
 
 
+def download_bg_image():
+    url = "https://www.impactsurf.com/images/thumbs/002/0025731_ninebot-kickscooter-max-g30-powered_870.jpeg"
+    response = requests.get(url)
+    content = response.content
+    cfw_obj.write_bin_file(cfw_obj.ninebot_jpeg, content)
+
+
+
 update_status = 0
 
 root = tk.Tk()
@@ -45,18 +53,23 @@ def get_firmware_informations():
         label.config(font=('Courier', 14))
         label['text'] = to_print
         update_status = 1
+        button["highlightbackground"] = "red"
+        button["fg"] = "white"
         button["text"] = "EXIT"
     else:
         button["state"] = "disabled"
+        button["highlightbackground"] = "grey"
         to_print = "Bye Bye"
         label['text'] = to_print
         label.after(2000, destroy)
 
 
+
+download_bg_image()
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
 
-im = PIL.Image.open("ninebot.jpeg")
+im = PIL.Image.open(cfw_obj.ninebot_jpeg)
 photo = PIL.ImageTk.PhotoImage(im)
 background_label = tk.Label(root, image=photo)
 background_label.place(relx=0, rely=0, relwidth=1, relheight=1)
@@ -79,6 +92,7 @@ label = tk.Label(lower_frame, font=('Courier', 18))
 label.place(relx=0, rely=0, relwidth=1, relheight=1)
 
 label["text"] = "Click the buttton above to\ngenerate modified custom firmware."
+
 
 # Center window
 root.eval('tk::PlaceWindow %s center' % root.winfo_pathname(root.winfo_id()))

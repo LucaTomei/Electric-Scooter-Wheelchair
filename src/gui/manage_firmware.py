@@ -26,6 +26,8 @@ class Manage_Firmware(object):
 			- Version spoofing
 			"""
 
+		self.ninebot_jpeg = "ninebot.jpeg"
+
 	def write_bin_file(self, filename, content):
 		file = open(filename, "wb")
 		file.write(content)
@@ -72,19 +74,22 @@ class Manage_Firmware(object):
 		
 
 	def main(self):
-		if os.path.exists(self.zip_filename):	os.remove(self.zip_filename)
-		self.make_folder(self.cfw_dir)
-		self.download_firmware()
-		self.extract_zip_file(self.zip_filename, self.cfw_dir)
-		self.remove_tmp_files()
-		self.make_params_file(self.cfw_dir)
+		if not os.path.exists("../files/cfw.zip"):
+			if os.path.exists(self.zip_filename):	os.remove(self.zip_filename)
+			self.make_folder(self.cfw_dir)
+			self.download_firmware()
+			self.extract_zip_file(self.zip_filename, self.cfw_dir)
+			self.remove_tmp_files()
+			self.make_params_file(self.cfw_dir)
 
-		os.remove(self.zip_filename)
+			os.remove(self.zip_filename)
 
-		self.make_zip_file(self.cfw_dir)
+			self.make_zip_file(self.cfw_dir)
+		else:
+			os.system("cp ../files/cfw.zip " + self.download_dir)
 
 		if os.path.exists(self.cfw_dir):	os.system("rm -rf " + self.cfw_dir)
-
+		if os.path.exists(self.ninebot_jpeg): os.remove(self.ninebot_jpeg)
 
 
 
