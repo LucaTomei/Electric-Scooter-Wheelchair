@@ -3,7 +3,7 @@ import time
 from IPython import display
 from xml.dom import minidom
 import math 
-
+import matplotlib.animation as animation
 
 def drawGPX(master_title, filename, outfilename):
     #READ GPX FILE
@@ -106,28 +106,37 @@ def drawGPX(master_title, filename, outfilename):
     elevation.set_ylabel("GPS Elevation (m)")
     elevation.grid()
 
+    from matplotlib.animation import FuncAnimation
 
     #ANIMATION/DYNAMIC PLOT
     for i in range(n_track):
-        track.plot(lon_list[i],lat_list[i],'yo')
-        speed.bar(d_list[i],speed_list[i],30,color='g',edgecolor='g')
-        elevation.plot(d_list[i],h_list[i],'ro')
+        track.plot(lon_list[i],lat_list[i],'yo', linewidth=2, markersize=4)
+        speed.bar(d_list[i],speed_list[i],10,color='g',edgecolor='g')
+        elevation.plot(d_list[i],h_list[i],'ro', linewidth=2, markersize=4)
         display.display(plt.gcf())
         display.clear_output(wait=True)
+        plt.tight_layout()
+        f.savefig("output/test1/" + str(i) + ".png", dpi=300)
+
         plt.pause(.2)
-    plt.show()
+
+        #f.savefig("output/test/" + str(i) + ".png", dpi=300)
+
     plt.tight_layout()
-    #f.savefig(outfilename, dpi=300)
+    #plt.show()
+    f.savefig(outfilename, dpi=300)
+
 
 if __name__ == '__main__':
-    master_title = "Electric Scooter + Wheelchair"
-    filename = '/Users/lucasmac/Documents/Università/Magistrale/CS-Notes.nosync/Tesi/Tesi/Electric-Scooter-Wheelchair/src/draw/data/2_carrozzina/DarknessBot 09.08.2021 10:34.gpx'
-    outfilename = "output/gpx1.png"
-    drawGPX(master_title, filename, outfilename)
+    # master_title = "Electric Scooter + Wheelchair"
+    # filename = '/Users/lucasmac/Documents/Università/Magistrale/CS-Notes.nosync/Tesi/Tesi/Electric-Scooter-Wheelchair/src/draw/data/2_carrozzina/DarknessBot 09.08.2021 10:34.gpx'
+    # outfilename = "output/gpx1.png"
+    # drawGPX(master_title, filename, outfilename)
 
     master_title = "Electric Scooter Stock Firmware"
     filename = '/Users/lucasmac/Documents/Università/Magistrale/CS-Notes.nosync/Tesi/Tesi/Electric-Scooter-Wheelchair/src/draw/data/only_scooter/DarknessBot 09.08.2021 14:18.gpx'
     outfilename = "output/gpx2.png"
     drawGPX(master_title, filename, outfilename)
+
 
 
