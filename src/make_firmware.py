@@ -13,7 +13,7 @@ MOVS_T1_IMM = [*[None]*8, 7, 6, 5, 4, 3, 2, 1, 0]
 
 
 ## Firmware Patcher Main class
-class FirmwarePatcher():
+class Make_Firmware():
     def __init__(self, data):
     	self.Firmware_Utils_OBJ = Firmware_Utils()
     	self.data = bytearray(data)
@@ -28,6 +28,17 @@ class FirmwarePatcher():
     def decrypt(self):
         self.data = EncDec.EncDec().decrypt(self.data)
     
+
+    # This type of algorithm replace the linear throttle curve with a quadratic one.
+    # With the quadratic curve, the power delivery works on a logarithmic scale, 
+    # sweet at the low end and then soaring on the final.
+    def throttle_alg(self):
+        sig = [0xF0, 0xB5, 0x25, 0x4A, 0x00, 0x24, 0xA2, 0xF8, 0xEC, 0x40, 0x24, 0x49]
+        ofs = self.Firmware_Utils_OBJ.GetPattern(self.data, sig) + 4
+        pre, post = self.data[ofs:ofs + 1], bytearray((0x01, 0x24))
+        self.data[ofs:ofs + 2] = post
+        return [(ofs, pre, post)]
+
     # Disable electric scooter automatic DRV updates on firmware changes
     def version_spoofing(self):
         sig = [0x4F, 0xF4, 0x93, 0x70, 0xA0, 0x86, 0x12, 0x48, 0x00, 0x78]
@@ -88,17 +99,6 @@ class FirmwarePatcher():
         return [(ofs, pre, post)]
 	
 
-	# This type of algorithm replace the linear throttle curve with a quadratic one.
-	# With the quadratic curve, the power delivery works on a logarithmic scale, 
-	# sweet at the low end and then soaring on the final.
-    def throttle_alg(self):
-        sig = [0xF0, 0xB5, 0x25, 0x4A, 0x00, 0x24, 0xA2, 0xF8, 0xEC, 0x40, 0x24, 0x49]
-        ofs = self.Firmware_Utils_OBJ.GetPattern(self.data, sig) + 4
-        pre, post = self.data[ofs:ofs + 1], bytearray((0x01, 0x24))
-        self.data[ofs:ofs + 2] = post
-        return [(ofs, pre, post)]
-
-        return ret
     
     # Speed parameters
     def speed_params(self, normal_kmh, normal_phase, normal_battery):
@@ -248,7 +248,7 @@ if __name__ == "__main__":
 		modality = 1
 		with open(sys.argv[1], 'rb') as fp:	data = fp.read()
 
-	cfw = FirmwarePatcher(data)
+	cfw = Make_Firmware(data)
 	cfw.motor_start_speed(6)
 	cfw.cc_delay(2)
 	cfw.throttle_alg()

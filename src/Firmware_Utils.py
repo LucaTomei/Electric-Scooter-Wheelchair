@@ -56,3 +56,4 @@ class Firmware_Utils(object):
 				if matches == sig_len:	return i
 
 		raise SgnException('Pattern not found!')
+
