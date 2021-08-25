@@ -96,6 +96,6 @@ label["text"] = "Click the buttton above to\ngenerate modified custom firmware."
 
 # Center window
 root.eval('tk::PlaceWindow %s center' % root.winfo_pathname(root.winfo_id()))
-
+root.title('Custom Firmware Generator')
 
 root.mainloop()
