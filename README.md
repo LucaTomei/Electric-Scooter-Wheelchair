@@ -1,5 +1,7 @@
 # Electric Scooter Wheelchair
 
+[![master-thesis](https://github.com/Amet13/master-thesis/workflows/master-thesis/badge.svg)](https://github.com/Amet13/master-thesis/actions)
+[![gpl-3.0](https://img.shields.io/badge/license-GNU_GPLv3-red.svg)](https://www.gnu.org/licenses/gpl-3.0.ru.html)
 > Thesis work submitted at Computer Science department at *Sapienza* University of Rome.
 
 ## Introduction
