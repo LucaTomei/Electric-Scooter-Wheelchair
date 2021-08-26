@@ -1,5 +1,7 @@
 # Electric Scooter Wheelchair
 
+> Thesis work submitted at Computer Science department at *Sapienza* University of Rome.
+
 ## Introduction
 
 *Before illustrating the various assembly phases, I would first of all like to express my sincere gratitude to my thesis advisor [Prof. Andrea Vitaletti](https://andreavitaletti.github.io/) for the continuous support of my thesis and related research, for his patience, motivation and knowledge.
