@@ -99,10 +99,10 @@ The reinforcement of the control unit consists in adding tin and possibly a copp
 ### For information about the project check out [my personal webpage](https://lucatomei.github.io) or follow me on:
 
 <div align="center">
-  <a href="https://github.com/LucaTomei/" ><img src="https://img.icons8.com/ios/50/000000/github--v2.gif" width="8%"/></a>
-  <a href="https://www.youtube.com/playlist?list=PLc5qWHNIyMOJ6JQbtwOI_JOLSSAsy53RV"><img src="https://img.icons8.com/color/48/000000/youtube--v3.gif" width="8%"/></a>
-  <a href="https://it.linkedin.com/in/luca-tomei-760296ab"><img src="https://img.icons8.com/color/48/4a90e2/linkedin-2--v2.gif" width="8%"/></a>
-  <a href="https://www.facebook.com/profile.php?id=100010340402905"><img src="https://img.icons8.com/color/48/4a90e2/facebook-circled--v4.gif" width="8%"/></a>
-  <a href="https://twitter.com/LucaTomei1995"><img src="https://img.icons8.com/color/48/000000/twitter-circled--v2.gif" width="8%"/></a>
+  <a href="https://github.com/LucaTomei/" ><img src="https://img.icons8.com/ios/50/000000/github--v2.gif" width="8%" hspace="25"/></a>
+  <a href="https://www.youtube.com/playlist?list=PLc5qWHNIyMOJ6JQbtwOI_JOLSSAsy53RV"><img src="https://img.icons8.com/color/48/000000/youtube--v3.gif" width="8%"  hspace="25"/></a>
+  <a href="https://it.linkedin.com/in/luca-tomei-760296ab"><img src="https://img.icons8.com/color/48/4a90e2/linkedin-2--v2.gif" width="8%"  hspace="25"/></a>
+  <a href="https://www.facebook.com/profile.php?id=100010340402905"><img src="https://img.icons8.com/color/48/4a90e2/facebook-circled--v4.gif" width="8%"  hspace="25"/></a>
+  <a href="https://twitter.com/LucaTomei1995"><img src="https://img.icons8.com/color/48/000000/twitter-circled--v2.gif" width="8%" /></a>
 </div>
 
