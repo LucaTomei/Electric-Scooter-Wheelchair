@@ -2,7 +2,6 @@ import requests, os, zipfile
 
 
 
-
 class Manage_Firmware(object):
 	def __init__(self):
 		self.firmware_url = "https://cfw-cdn-max.scooterhacking.org/?output=zip2&version=DRV126&compat_patches=on&region=G30P&version_spoofing=on&showbatt=on&boot_workmode=3&beep_lock=1&beep_unlock=1&beep_reboot=2&beep_shutdown=2&beep_cruise_control=2&beep_charger_in=1&beep_charger_out=3&voltage=36&p_sports=33000&p_drive=25000&i_sports=55000&i_drive=28000&i_eco=23000&max_speed_us=26&max_speed_eu=26&max_speed_de=26&direct_power_control=dyn&direct_power_control_curve=quadratic&current_raising_coefficient=1800&motor_start_speed=0&brake_limit=120&brake_i_min=6000&brake_i_max=35000&kers_min_speed=6&no_kers=on&brake_current_raising_coefficient=500&brake_light_mode=stock&brake_light_flash_frequency=235&cruise_control_delay=3&no_cruise_control=on&error_raising_level=1&no_overspeed_alarm=on&stay_on_locked=on&wheel_size=10.0"
