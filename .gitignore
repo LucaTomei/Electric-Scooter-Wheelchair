@@ -1,8 +1,8 @@
 tmp/
 __pycache__/
 *.pyc
-docs/Tesi_1759275/
-docs/Tesi_1759275_dynamic.pptx
-docs/Tesi_1759275_static.pptx
-docs/Tesi_1759275-Compressed.pdf
-docs/Tesi_1759275.pdf
+docs/PPTX_Thesis/
+docs/PDF_Thesis/
+docs/aux/
+docs/speeches/
+stl/
