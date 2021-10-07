@@ -1,8 +1,5 @@
 tmp/
 __pycache__/
 *.pyc
-docs/PPTX_Thesis/
-docs/PDF_Thesis/
-docs/aux/
-docs/speeches/
+docs/*
 stl/
