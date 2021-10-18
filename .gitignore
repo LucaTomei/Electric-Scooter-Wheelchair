@@ -1,6 +1,21 @@
 tmp/
 __pycache__/
 *.pyc
-docs/*
-docs/speeches
-stl/
+# docs/*
+
+docs/PPTX_Thesis/slides_template.pptx
+docs/PPTX_Thesis/v1*
+docs/PPTX_Thesis/v2*
+docs/PPTX_Thesis/v2_backup*
+docs/PDF_Thesis/1319834-Similarity-Check.pdf
+docs/PDF_Thesis/before_plagiarism*
+docs/PDF_Thesis/NEW-after_plagiarism*
+
+docs/speeches/TESI_FINALE.docx
+docs/speeches/BACKGROUND.docx
+docs/speeches/pptx*
+docs/speeches/docx*
+docs/speeches/V3-ENGLISH_VERSION_-_DISCORSO_TESI.pdf
+docs/speeches/V3-ENGLISH_VERSION_-_DISCORSO_TESI.docx
+docs/speeches/V3-ENGLISH VERSION - DISCORSO TESI.txt
+stl/STL-to-gif*
